@@ -23,20 +23,14 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceAssembler;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 @RequestMapping("/games")
-@RestController
+// TODO: 1
 final class GameController {
 
     private final GameService gameService;
@@ -49,18 +43,18 @@ final class GameController {
         this.resourceAssembler = resourceAssembler;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "")
+    // TODO: 2
     @Transactional
-    ResponseEntity<Void> create() {
+    void create() {
         Game game = this.gameService.create();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(linkTo(GameController.class).slash(game).toUri());
+        // TODO: 8
 
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        // TODO: 5
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{game}", produces = MediaType.APPLICATION_JSON_VALUE)
+    // TODO: 3
     @ResponseStatus(HttpStatus.OK)
     @Transactional(readOnly = true)
     Resource<Game> read(@PathVariable Game game) {
@@ -68,7 +62,7 @@ final class GameController {
         return this.resourceAssembler.toResource(game);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{game}")
+    // TODO: 4
     @ResponseStatus(HttpStatus.OK)
     @Transactional
     void delete(@PathVariable Game game) {

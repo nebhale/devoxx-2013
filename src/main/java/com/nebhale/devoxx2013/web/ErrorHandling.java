@@ -24,8 +24,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 final class ErrorHandling {
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    // TODO: 7
     void handleIllegalArgumentException() {}
 
     @ExceptionHandler(IllegalStateException.class)

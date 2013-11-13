@@ -18,10 +18,8 @@ package com.nebhale.devoxx2013.service;
 
 import com.nebhale.devoxx2013.domain.Door;
 import com.nebhale.devoxx2013.domain.Game;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.CONFLICT)
+// TODO: 6
 public final class IllegalTransitionException extends Exception {
 
     private static final long serialVersionUID = -7234293084303395854L;

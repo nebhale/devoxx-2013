@@ -44,7 +44,7 @@ public class DoorControllerTest extends AbstractTest {
 
         this.mockMvc.perform(get("/games/{game}/doors/{door}", game.getId(), door.getId()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content").value("UNKNOWN"))
+                // TODO: 10
                 .andExpect(jsonPath("$.status").value("CLOSED"))
                 .andExpect(jsonPath("$.links[?(@.rel==self)].href[0]").value(String.format
                         ("http://localhost/games/%d/doors/%d", game.getId(), door.getId())));

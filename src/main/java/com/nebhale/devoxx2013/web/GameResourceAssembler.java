@@ -42,7 +42,7 @@ public final class GameResourceAssembler implements ResourceAssembler<Game, Reso
         resource.add(linkTo(GameController.class).slash(game).withSelfRel());
 
         for (Door door : this.doorRepository.findAllByGame(game)) {
-            resource.add(linkTo(DoorController.class, game.getId()).slash(door).withRel("door"));
+            // TODO: 9
         }
 
         return resource;
